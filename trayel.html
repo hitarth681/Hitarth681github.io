@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehndi Design Appointment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            box-sizing: border-box; /* To include padding in the width */
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #feb47b, #ff7e5f);
+        }
+
+        .mehndi-designs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .mehndi-designs img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .mehndi-designs img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-message {
+            color: #ffdddd;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Book Your Mehndi Appointment</h1>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+            <div class="form-group">
+                <label for="date">Appointment Date</label>
+                <input type="date" id="date" name="date" required>
+                <div class="error-message" id="dateError"></div>
+            </div>
+            <div class="form-group">
+                <label for="time">Appointment Time</label>
+                <input type="time" id="time" name="time" required>
+                <div class="error-message" id="timeError"></div>
+            </div>
+            <div class="form-group">
+                <label for="design">Choose a Design Style</label>
+                <select id="design" name="design">
+                    <option value="traditional">Traditional</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="bridal">Bridal</option>
+                    <option value="modern">Modern</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Requests</label>
+                <textarea id="message" name="message" rows="4" placeholder="Any special requests or details..."></textarea>
+            </div>
+            <button type="submit">Book Appointment</button>
+        </form>
+        <div class="mehndi-designs">
+            <img src="img2.jpg" alt="Mehndi Design 1">
+            <img src="img3.jpg" alt="Mehndi Design 2">
+            <img src="img4.jpg" alt="Mehndi Design 3">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('appointmentForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const dateError = document.getElementById('dateError');
+            const timeError = document.getElementById('timeError');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                let isValid = true;
+
+                // Name validation
+                if (nameInput.value.trim() === '') {
+                    nameError.textContent = 'Please enter your full name.';
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nameError.style.display = 'none';
+                }
+
+                // Email validation
+                if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+
+                // Phone validation
+                if (!/^\d{10}$/.test(phoneInput.value)) {
+                    phoneError.textContent = 'Please enter a valid 10-digit phone number.';
+                    phoneError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    phoneError.style.display = 'none';
+                }
+
+                // Date validation
+                if (dateInput.value === '') {
+                    dateError.textContent = 'Please select a date.';
+                    dateError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    dateError.style.display = 'none';
+                }
+
+                 // Time validation
+                 if (timeInput.value === '') {
+                    timeError.textContent = 'Please select a time.';
+                    timeError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    timeError.style.display = 'none';
+                }
+
+
+                if (isValid) {
+                    alert('Appointment booked successfully!');
+                    form.reset();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
