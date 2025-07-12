@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehndi Design Appointment</title>
+    <title>Video Editing Appointment</title>
+    
     <style>
+    
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'techno font', techno font;
+            margin: 60;
+            padding: 50;
+            background: linear-gradient(to right, #002366, #9370DB, #feb47b,#ff66cc,#90EE90,#002366);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -21,7 +23,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(5, 3, 8, 6.3);
             width: 90%;
             max-width: 500px;
         }
@@ -29,8 +31,9 @@
         h1 {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.5em;
+            text-shadow: 15px 15px 15px rgba(5,3,8,6.3);
+            text-color:purple;
         }
 
         .form-group {
@@ -39,8 +42,8 @@
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+            margin-bottom: 10px;
+            font-weight: bold,underline;
         }
 
         input,
@@ -48,9 +51,9 @@
         textarea {
             width: 100%;
             padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
+            border: 15px;
+            border-radius: 10px;
+            background: rgba(2505, 2055, 2505, 0.2);
             color: #fff;
             box-sizing: border-box; /* To include padding in the width */
         }
@@ -64,13 +67,13 @@
             width: 100%;
             padding: 15px;
             border: none;
-            border-radius: 5px;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            color: #fff;
-            font-size: 1.2em;
+            border-radius: 15px;
+            background: linear-gradient(to right, #ff7e5f,#800080 );
+            color:black;
+            font-size: 1.7em;
             cursor: pointer;
             transition: background 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
@@ -80,21 +83,21 @@
         .mehndi-designs {
             display: flex;
             justify-content: space-around;
-            margin-top: 30px;
+            margin-top: 70px;
         }
 
         .mehndi-designs img {
             width: 100px;
             height: 100px;
-            border-radius: 10px;
+            border-radius: 05px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 14px 16px rgba(0, 0, 0, 0.1);
         }
 
         .mehndi-designs img:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 12px rgba(4, 6, 7, 0.2);
         }
 
         .error-message {
@@ -109,7 +112,14 @@
 <body>
 
     <div class="container">
-        <h1>Book Your Mehndi Appointment</h1>
+        <h1>Book Your Video Editing Appointment</h1>
+        <center> <img src="img 4.jpg" height="250" width="425" ></center>
+        <div class="icons">
+
+</div>
+        
+        
+        
         <form id="appointmentForm">
             <div class="form-group">
                 <label for="name">Full Name</label>
@@ -135,16 +145,19 @@
                 <label for="time">Appointment Time</label>
                 <input type="time" id="time" name="time" required>
                 <div class="error-message" id="timeError"></div>
+                <h5>Upload Your Image How You Want </h5>
+                <input type="file">
             </div>
             <div class="form-group">
                 <label for="design">Choose a Design Style</label>
                 <select id="design" name="design">
-                    <option value="traditional">Traditional</option>
-                    <option value="arabic">Arabic</option>
-                    <option value="bridal">Bridal</option>
-                    <option value="modern">Modern</option>
+                    <option value="photo editing">Photo Editing</option>
+                    <option value="video editing">Video Editing</option>
+                    <option value="graphics work">Graphics Work</option>
+                    <option value="logo make">Logo Make</option>
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="message">Additional Requests</label>
                 <textarea id="message" name="message" rows="4" placeholder="Any special requests or details..."></textarea>
@@ -152,9 +165,10 @@
             <button type="submit">Book Appointment</button>
         </form>
         <div class="mehndi-designs">
-            <img src="img2.jpg" alt="Mehndi Design 1">
-            <img src="img3.jpg" alt="Mehndi Design 2">
-            <img src="img4.jpg" alt="Mehndi Design 3">
+            <img src="img 5.jpg" >
+            <img src="img 6.jpg" >
+            <img src="img 4.jpg" >
+           
         </div>
     </div>
 
